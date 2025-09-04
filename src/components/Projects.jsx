@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import "./Projects.css";
 import { FaCode, FaCertificate, FaTools } from "react-icons/fa"; // ⬅️ tambahan
+import porto1 from "../assets/porto1.png"; 
+import porto2 from "../assets/porto2.png"; 
+import porto3 from "../assets/porto3.png"; 
+
 
 function Projects() {
   const [activeTab, setActiveTab] = useState("projects");
@@ -48,28 +52,19 @@ function Projects() {
         {activeTab === "projects" && (
           <div className="grid-container">
             <div className="card">
-              <img
-                src="src/assets/porto1.png"
-                alt="WMS"
-              />
+              <img src={porto1} alt="porto1" className="porto1" />
               <h3>Warehouse Website Integrated System at PT Rahayu Antara Nusindo</h3>
               <p>"The Warehouse Management System (WMS) at PT Rahayu Antara Nusindo is a custom-built website developed using the Laravel framework. 
                 This integrated system is designed to streamline warehouse operations by connecting directly with the 
                 company's payroll system and a real-time fingerprint attendance system, which utilizes the FingerSpot API."</p>
             </div>
             <div className="card">
-              <img
-                src="src/assets/porto2.png"
-                alt=""
-              />
+              <img src={porto2} alt="porto2" className="porto1" />
               <h3>Loop : Refresh The Streaming Others Beers Cannot Reach</h3>
               <p>Loop was created with full observation and user needs among teenagers and adults, the simple and minimalist appearance will be very helpful and easy to use Loop : Everything can be fun</p>
             </div>
             <div className="card">
-              <img
-                src="src/assets/porto3.png"
-                alt="Redish"
-              />
+              <img src={porto3} alt="porto3" className="porto1" />
               <h3>Redish : Be The Hero To Against Food Waste</h3>
               <p>ReDish is an application with economic, food and social themes. where we have to fight food waste. there are 3 kinds of features, 
                 namely Edible Food which can still be consumed, also Expired Food and Crop Failure which can be processed into fertilizer and agricultural materials
