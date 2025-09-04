@@ -1,0 +1,59 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+    background-color: #f9f9f9; /* dark navy */
+  }
+  
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .logo-img {
+    height: 40px;
+    width: auto;
+  }
+  
+  .logo-text {
+    font-family: "Poppins";
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #191919;
+  }
+   
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+  }
+  
+  .nav-links li a {
+    text-decoration: none;
+    color: #191919;
+    font-size: 15px;
+    transition: color 0.3s;
+  }
+  
+  .nav-links li a {
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .nav-links li a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 0;
+    bottom: -3px;
+    background-color: #191919;
+    transition: width 0.3s ease;
+  }
+  
+  .nav-links li a:hover::after {
+    width: 100%;
+  }  
