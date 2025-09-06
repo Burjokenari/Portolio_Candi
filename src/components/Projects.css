@@ -1,4 +1,5 @@
 .projects {
+  min-height: 80vh;
   background: #f9f9f9;
   padding: 5rem 8%;
   text-align: center;

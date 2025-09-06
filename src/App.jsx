@@ -1,19 +1,40 @@
+import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import "./App.css";
-import BackToTop from "./components/BackToTop";
 
 function App() {
+  const [loading, setLoading] = useState(true);
+  const [animateOut, setAnimateOut] = useState(false);
+
+  const handleEnter = () => {
+    setAnimateOut(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000); // sesuai durasi animasi CSS
+  };
+
   return (
-    <>
-      <Navbar />
-      <Hero />
-      <Projects />
-      <Contact />
-      <BackToTop />
-    </>
+    <div className="App">
+      {loading ? (
+        <div
+          className={`loading-screen ${animateOut ? "zoom-blur-out" : ""}`}
+          onClick={handleEnter} // klik di mana saja
+        >
+          <h1 className="loading-text">Welcome!</h1>
+          <p className="loading-sub">Knock knock… Are you ready? Click anywhere to open the door.</p>
+        </div>
+      ) : (
+        <div className="landing zoom-in">
+          <Navbar />
+          <Hero />
+          <Projects />
+          <Contact />
+        </div>
+      )}
+    </div>
   );
 }
 
