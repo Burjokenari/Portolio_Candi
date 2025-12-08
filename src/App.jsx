@@ -33,6 +33,7 @@ function App() {
           <Hero />
           <Projects />
           <Contact />
+          <BackToTop />
         </div>
       )}
     </div>
