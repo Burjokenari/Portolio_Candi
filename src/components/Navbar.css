@@ -1,59 +1,108 @@
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 80px;
-    background-color: #f9f9f9; /* dark navy */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 80px;
+  background-color: #f9f9f9;
+  position: relative; /* Penting agar menu mobile posisinya benar */
+  z-index: 999; /* Agar navbar selalu di atas elemen lain */
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 1000; /* Logo tetap di atas */
+}
+
+.logo-img {
+  height: 40px;
+  width: auto;
+}
+
+.logo-text {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #191919;
+}
+
+/* --- Style Menu Desktop --- */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-links li a {
+  position: relative;
+  text-decoration: none;
+  color: #191919;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 5px 0;
+}
+
+/* Efek garis bawah saat hover */
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+  background-color: #191919;
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+/* Tombol Hamburger (Default disembunyikan di Desktop) */
+.menu-icon {
+  display: none;
+  font-size: 1.5rem;
+  color: #191919;
+  cursor: pointer;
+}
+
+/* --- RESPONSIVE (Mobile & Tablet) --- */
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 20px; /* Padding lebih kecil di HP */
   }
-  
-  .navbar-logo {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+
+  /* Munculkan tombol Hamburger */
+  .menu-icon {
+    display: block;
+    z-index: 1000;
   }
-  
-  .logo-img {
-    height: 40px;
-    width: auto;
-  }
-  
-  .logo-text {
-    font-family: "Poppins";
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #191919;
-  }
-   
+
+  /* Ubah Nav Links menjadi Dropdown/Menu Fullscreen */
   .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-  }
-  
-  .nav-links li a {
-    text-decoration: none;
-    color: #191919;
-    font-size: 15px;
-    transition: color 0.3s;
-  }
-  
-  .nav-links li a {
-    position: relative;
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  .nav-links li a::after {
-    content: "";
     position: absolute;
-    width: 0;
-    height: 2px;
+    top: -500px; /* Sembunyikan menu di atas layar */
     left: 0;
-    bottom: -3px;
-    background-color: #191919;
-    transition: width 0.3s ease;
+    width: 100%;
+    height: auto;
+    flex-direction: column; /* Link tersusun ke bawah */
+    background-color: #f9f9f9;
+    align-items: center;
+    padding: 20px 0;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    opacity: 0;
+    z-index: 998;
+  }
+
+  /* Ketika tombol ditekan (class 'active' ditambahkan via React) */
+  .nav-links.active {
+    top: 70px; /* Turunkan menu ke bawah navbar */
+    opacity: 1;
   }
   
-  .nav-links li a:hover::after {
-    width: 100%;
-  }  
+  .nav-links li {
+    margin: 15px 0; /* Beri jarak antar link di menu HP */
+  }
+}

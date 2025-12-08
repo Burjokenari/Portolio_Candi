@@ -5,11 +5,12 @@ import { OrbitControls, useTexture } from "@react-three/drei";
 import "./Contact.css";
 
 function LogoBox({ position, rotation }) {
-  const texture = useTexture("/logo.png"); // taruh logo.png di public/
+  // Pastikan file logo.png ada di folder public
+  const texture = useTexture("/logo.png"); 
 
   return (
     <mesh position={position} rotation={rotation}>
-      <boxGeometry args={[1.0, 1.0, 1.0]} />
+      <boxGeometry args={[1.2, 1.2, 1.2]} /> {/* Sedikit diperbesar */}
       <meshStandardMaterial map={texture} />
     </mesh>
   );
@@ -23,10 +24,10 @@ function Contact() {
 
     emailjs
       .sendForm(
-        "service_4yoy28p", // Service ID
-        "template_ypqkmda", // Template ID
+        "service_4yoy28p", 
+        "template_ypqkmda", 
         form.current,
-        "F2aKkaZ95FDzuDIqq" // Public Key
+        "F2aKkaZ95FDzuDIqq"
       )
       .then(
         () => {
@@ -42,15 +43,17 @@ function Contact() {
   return (
     <section className="contact" id="contact">
       <div className="contact-left">
-        <Canvas camera={{ position: [0, 0, 6], fov: 50 }}>
-          <ambientLight intensity={0.5} />
-          <directionalLight position={[5, 5, 5]} />
-          <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={1.5} />
+        {/* Camera dimundurkan sedikit ke z: 8 agar muat di layar HP */}
+        <Canvas camera={{ position: [0, 0, 8], fov: 45 }}>
+          <ambientLight intensity={0.6} />
+          <directionalLight position={[5, 5, 5]} intensity={1} />
+          {/* Zoom dimatikan agar user tidak sengaja zoom saat scroll halaman */}
+          <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={2} />
 
-          {/* 3 logo box */}
-          <LogoBox position={[-3, 0, 0]} rotation={[0.3, 0.5, 0]} />
+          {/* Posisi Box */}
+          <LogoBox position={[-2.5, 0, 0]} rotation={[0.3, 0.5, 0]} />
           <LogoBox position={[0, 0, 0]} rotation={[0.1, 0.9, 0.2]} />
-          <LogoBox position={[3, 0, 0]} rotation={[0.4, 0.2, 0.3]} />
+          <LogoBox position={[2.5, 0, 0]} rotation={[0.4, 0.2, 0.3]} />
         </Canvas>
       </div>
 

@@ -1,75 +1,130 @@
+/* --- Tampilan Default (Desktop) --- */
 .hero {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 80px;
-    background-color: #f9f9f9;
-    color: #191919;
-    min-height: 80vh;
-  }
-  
-  .hero-text {
-    max-width: 50%;
-  }
-  
-  .welcome {
-    color: #191919;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .hero-text h1 {
-    font-size: 48px;
-    margin-bottom: 15px;
-  }
-  
-  .hero-text h1 span {
-    color: #191919;
-    padding-right: 5px;
-  }
-  
-  .desc {
-    text-align: justify;
-    margin-bottom: 20px;
-    line-height: 1.6;
-    color: #191919;
-  }
-  
-  .social-icons {
-    display: flex;
-    gap: 15px;
-  }
-  
-  .social-icons a {
-    font-size: 20px;
-    color: #191919;
-    border: 1px solid #191919;
-    padding: 8px;
-    border-radius: 50%;
-    transition: 0.3s;
-  }
-  
-  .social-icons a:hover {
-    background: #191919;
-    color: white;
-  }
-  
-  .hero-image img {
-    margin-right: 100px;
-    width: 450px;
-    border-radius: 12px;
-  } 
-  
-  .hero-image {
-    display: flex;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 80px; /* Padding kiri-kanan */
+  background-color: #f9f9f9;
+  color: #191919;
+  min-height: 100vh; /* Menggunakan 100vh agar full screen */
+  gap: 500px; /* Jarak antar teks dan gambar */
+}
+
+.hero-text {
+  flex: 1; /* Agar mengambil sisa ruang yang ada */
+  max-width: 600px;
+}
+
+.welcome {
+  color: #191919;
+  font-weight: bold;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.hero-text h1 {
+  font-size: 48px;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.hero-text h1 span {
+  color: #191919;
+}
+
+.desc {
+  text-align: justify;
+  margin-bottom: 30px;
+  line-height: 1.8;
+  color: #4a4a4a; /* Sedikit lebih abu agar nyaman dibaca */
+  font-size: 16px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  color: #191919;
+  border: 1px solid #191919;
+  border-radius: 50%;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.social-icons a:hover {
+  background: #191919;
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* Container Gambar */
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center; /* Supaya gambar di tengah area-nya */
+  align-items: center;
+}
+
+/* Style Gambar */
+.profile-pic {
+  width: 200%;
+  max-width: 500px; /* Batas maksimal ukuran gambar */
+  height: auto;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* --- RESPONSIVE (Mobile & Tablet) --- */
+@media screen and (max-width: 968px) {
+  .hero {
+    flex-direction: column-reverse; /* Membalik urutan: Gambar di atas, Teks di bawah (atau column biasa) */
     justify-content: center;
-    align-items: center;
+    padding: 60px 20px; /* Mengurangi padding layar kecil */
+    text-align: center; /* Rata tengah untuk mobile */
+    min-height: auto;
+    gap: 40px;
   }
-  
+
+  .hero-text {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .hero-text h1 {
+    font-size: 32px; /* Font lebih kecil di HP */
+  }
+
+  /* React Typed span fix */
+  .hero-text h1 span {
+    display: inline-block; /* Agar typing effect rapi di mobile */
+    min-height: 40px; 
+  }
+
+  .desc {
+    text-align: center; /* Ubah justify jadi center di HP agar spasi tidak aneh */
+    font-size: 14px;
+  }
+
+  .social-icons {
+    justify-content: center; /* Icon rata tengah */
+    margin-bottom: 20px;
+  }
+
+  .hero-image {
+    width: 100%;
+    margin-right: 0; /* Reset margin aneh dari kode lama */
+  }
+
   .profile-pic {
-    width: 280px;
-    height: auto;
-    border-radius: 50%;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease-in-out;
+    max-width: 250px; /* Perkecil gambar di HP */
   }
+}
