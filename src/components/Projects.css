@@ -3,108 +3,189 @@
   padding: 5rem 8%;
   text-align: center;
   color: #191919;
+  min-height: 100vh; /* Agar tinggi minimal sepenuh layar */
 }
 
 .projects h2 {
-  font-size: 2.4rem;
+  font-size: 2.5rem;
   margin-bottom: 1rem;
   color: #191919;
+  font-weight: 800;
 }
 
 .projects-desc {
-  font-size: 1rem;
-  color: #191919;
-  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  color: #4a4a4a;
+  margin-bottom: 3rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
 }
 
+/* --- TABS --- */
 .tabs {
   display: flex;
   justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  }
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap; /* Agar tombol turun ke bawah jika layar sempit */
+}
 
 .tabs button {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column; /* Icon di atas, teks di bawah */
   align-items: center;
   justify-content: center;
-  padding: 0.6rem 1.2rem;
-  border: 1px solid #f9f9f9;
+  padding: 0.8rem 1.5rem;
+  border: 2px solid #e0e0e0;
   background: transparent;
   color: #191919;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
-  transition: 0.3s;
+  transition: all 0.3s ease;
+  min-width: 120px;
+}
+
+.tabs button .btn-icon {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
 }
 
 .tabs button.active,
 .tabs button:hover {
   background: #191919;
   color: #f9f9f9;
+  border-color: #191919;
+  transform: translateY(-3px);
 }
 
 .tab-content {
   margin-top: 2rem;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
-/* Grid untuk Projects & Certificates */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- GRID SYSTEM & CARD LINKS --- */
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+  /* Responsif: Kolom menyesuaikan lebar layar */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Style untuk Link pembungkus Card */
+.card-link {
+  text-decoration: none; /* Menghilangkan garis bawah */
+  color: inherit; /* Warna teks mengikuti parent */
+  display: block; /* Agar link membungkus seluruh area card */
 }
 
 .card {
-  background: #f9f9f9;
+  background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   overflow: hidden;
-  transition: 0.3s;
+  transition: all 0.3s ease;
   text-align: left;
+  height: 100%; /* Agar tinggi kartu seragam */
+  display: flex;
+  flex-direction: column;
 }
 
 .card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 .card img {
   width: 100%;
-  height: 280px;
+  height: 220px;
   object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.card:hover img {
+  transform: scale(1.05); /* Efek zoom saat hover */
 }
 
 .card h3 {
-  margin: 1rem;
+  margin: 1.5rem;
+  margin-bottom: 0.5rem;
   color: #191919;
+  font-size: 1.25rem;
+  line-height: 1.4;
 }
 
 .card p {
   text-align: justify;
-  font-size: small;
-  margin: 0 1rem 1rem;
-  color: #444;
+  font-size: 0.95rem;
+  margin: 0 1.5rem 1.5rem;
+  color: #555;
+  line-height: 1.6;
 }
 
-/* Tech Stack */
+/* --- TECH STACK --- */
 .techstack-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
+  gap: 2.5rem;
+  padding: 2rem 0;
 }
 
 .tech-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 3rem;
+  font-size: 3.5rem;
   color: #444;
+  transition: transform 0.3s;
+}
+
+.tech-item:hover {
+  transform: scale(1.1);
+  color: #191919;
 }
 
 .tech-item p {
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
+  margin-top: 0.8rem;
+  font-size: 1rem;
   font-weight: 600;
+}
+
+/* --- RESPONSIVE (Mobile & Tablet) --- */
+@media screen and (max-width: 768px) {
+  .projects {
+    padding: 3rem 1.5rem; /* Padding lebih kecil di HP */
+  }
+
+  .projects h2 {
+    font-size: 2rem;
+  }
+
+  /* Ubah grid menjadi 1 kolom penuh di HP agar kartu besar */
+  .grid-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .tabs {
+    gap: 10px;
+  }
+
+  .tabs button {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+    flex: 1; /* Tombol memenuhi lebar layar */
+  }
+
+  .card img {
+    height: 200px;
+  }
 }

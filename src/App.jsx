@@ -25,7 +25,7 @@ function App() {
           onClick={handleEnter} // klik di mana saja
         >
           <h1 className="loading-text">Welcome!</h1>
-          <p className="loading-sub">Knock knock… Are you ready? Click anywhere to open the door.</p>
+          <h5 className="loading-sub">Knock knock… Are you ready? Click anywhere to open the door.</h5>
         </div>
       ) : (
         <div className="landing zoom-in">

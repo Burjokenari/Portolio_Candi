@@ -10,11 +10,11 @@ function Hero() {
       <div className="hero-text">
         <p className="welcome">WELCOME!</p>
         <h1>
-          I'm a <br />
+          I'm an <br />
           <ReactTyped 
             strings={[
+              "IT Dev.",
               "IT Enthusiast.",
-              "UI/UX Designer.",
               "Front-End Dev."
             ]}
             typeSpeed={50}
@@ -25,10 +25,13 @@ function Hero() {
           />
         </h1>
         <p className="desc">
-          I am a graduated final-year Information Technology student at Telkom University, 
-          currently completing my thesis on warehouse and attendance system design using the Goal-Directed Design method. 
-          I enjoy learning new technologies and embracing practical challenges. My main interests include Web Development, 
-          IT Network and Infra.
+          I am a fresh graduate Information Technology student at Telkom University with professional experience in Quality Assurance, 
+          Web Content Administration, and software development. I have performed manual, sanity, and black-box testing for AI platforms such as Telkomsel Veronika and MYKA, 
+          executed API testing using Postman, and conducted SQL-based data validation to ensure accuracy and system reliability. 
+          I also design and execute structured test cases using Cucumber, document issues, and collaborate closely with product and development teams to support successful sprint delivery 
+          in Agile environments. Beyond QA, I manage and validate web content to maintain consistency, usability, and alignment with product standards. With a strong foundation in Python, 
+          Laravel, and Figma, along with years of involvement in IT organizations, I bring analytical thinking, adaptability, and a commitment to continuous learning. I am passionate about 
+          delivering high-quality digital experiences and eager to contribute to impactful projects in software testing and web operations.
         </p>
         
         <div className="social-icons">
